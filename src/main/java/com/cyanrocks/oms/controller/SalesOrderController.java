@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.time.Duration;
 
 @Slf4j
 @RestController
@@ -31,9 +32,9 @@ public class SalesOrderController {
     @GetMapping("/redis")
     public ApiData testRedis() {
         // 设置
-        //this.stringRedisTemplate.opsForValue().set("title", "spring 中文网", Duration.ofMinutes(5));
+        this.stringRedisTemplate.opsForValue().set("name", "小明", Duration.ofMinutes(5));
         // 读取
-        String val = this.stringRedisTemplate.opsForValue().get("title");
+        String val = this.stringRedisTemplate.opsForValue().get("name");
         log.info("val:{}",val);
         return new ApiData(200, val);
     }
