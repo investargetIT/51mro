@@ -2,6 +2,7 @@ package com.cyanrocks.oms.controller;
 
 import com.cyanrocks.common.constant.OrderServiceNames;
 import com.cyanrocks.common.vo.api.ApiData;
+import com.cyanrocks.oms.controller.base.BaseController;
 import com.cyanrocks.oms.dao.SalesOrderDao;
 import com.cyanrocks.microService.helper.Hc;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -19,13 +20,14 @@ import java.time.Duration;
 @Slf4j
 @RestController
 @RequestMapping("/order")
-public class SalesOrderController {
+public class SalesOrderController extends BaseController {
     @Resource
     private SalesOrderDao salesOrderRepository;
 
     @GetMapping("/all")
     public ApiData getAllSalesOrder() {
        // return salesOrderRepository.findAll();
+
         return new ApiData(444, "接口临时关闭,等候开放..");
     }
 
